@@ -18,7 +18,7 @@ while True:
     else:
         count = count + 1
 # number of attempts can be changed by changing 3 to any desired number number
-        if count ==3:
+        if count == 3:
             print("Maximum attempt reached")
             break
         if user_input != username:
