@@ -68,3 +68,24 @@ while True:
         names[num] = name1
     else:
         Print("Invalid Option: Try Again")
+
+
+Today's New Concept: Function Parameters
+
+So far you've written:
+
+def square_num():
+    number = int(input("Enter Number: "))
+    return number * number
+
+It works.
+
+But now let's make the function more flexible.
+
+Instead of asking for input inside the function, pass the value to it.
+
+def square_num(number):
+    return number * number
+
+num = int(input("Enter Number: "))
+print(square_num(num))
