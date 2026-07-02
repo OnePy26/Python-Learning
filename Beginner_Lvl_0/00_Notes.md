@@ -89,3 +89,51 @@ def square_num(number):
 
 num = int(input("Enter Number: "))
 print(square_num(num))
+
+
+
+names = []
+
+def add_name():
+    name = input("Enter name (0 for Main Menu): ")
+
+    if name == "0":
+        return False      # Tell the caller to stop
+
+    names.append(name)
+    return True           # Tell the caller to continue
+
+
+def remove_name():
+    name = input("Enter name: ")
+    names.remove(name)
+
+
+def show_name():
+    for i, n in enumerate(names):
+        print(i, n)
+
+
+def update_name():
+    num = int(input("Enter record Number: "))
+    name1 = input("Enter new Name: ")
+    names[num] = name1
+
+
+print(
+"===============Student Record Manager=================\n"
+"1 to Add Student                   2 to Remove Student\n"
+"3 to Show Student List             4 to Update Student Name\n"
+"                       5 to Exit \n"
+"======================================================"
+)
+
+while True:
+    choice = int(input("Enter choice here: "))
+
+    if choice == 1:
+        while True:
+            if not add_name():
+                break
+
+    elif choice == 2:
