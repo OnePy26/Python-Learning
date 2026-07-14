@@ -6,7 +6,7 @@ password1 = "alan42"
 
 # list
 task_list = [] #original list
-complete_task =[] # completed task's will be moved from last_list to this list for the show_complete function.
+#complete_task =[] # completed task's will be moved from last_list to this list for the show_complete function.
 
 def add_task ():
     while True:
@@ -15,27 +15,44 @@ def add_task ():
                 break
             elif len(task) < 5:
                 print("Task should be of at least 5 Characters|Try Again")
+            task = task.capitalize().strip()
             task_list.append(task)
             
 
+def replace_task ():
+    while True:
+            number_ = input("Add task number (N to main menu): ")
+            if number_.lower() == "n":
+                break
+            number_= int(number_)
+            new_task = input("Add New task (N to main menu): ")
+            if new_task.lower() == "n":
+                break
+            task_list[number_] = new_task            
+
 
 def remove_task ():
-    while True:
-            task = input("Add task (N to main menu): ")
-            if task.lower() == "n":
-                break
-            elif len(task) < 5:
-                print("Task should be of at least 5 Characters|Try Again")
-            task_list.append(task)
+    pass
+
 
 def mark_complete ():
-    pass
+    while True:
+            number_ = input("Add task number (N to main menu): ")
+            if task.lower() == "n":
+                break
+            number_.lower() = number_
+            "[\u2713]" += task_list.index[number_]
+
 
 def show_completed ():
-    pass
+    for i in task_list:
+    if i startswith("[\u2731]")
+        print(task_list.index(i), i.startswith("[\u2713]"))
+
 
 def show_pending ():
     pass
+
 
 def password ():
     count = 0
@@ -57,7 +74,7 @@ def password ():
 
 result = password()
 
-if result == True:
+if result:
 
     print (f"==================Task Manager================ \n"
     f"1. Add task                   2. Remove Task \n"
@@ -81,6 +98,8 @@ while True:
         else:
             choice == 5
             break
+    except:
+        print("Invalid Choice | Try again")
 
 
 
