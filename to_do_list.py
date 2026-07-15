@@ -1,4 +1,6 @@
 # Simple beginner friendly To DO List code - Using Lists.
+
+#list of tasks (to save time) : wake up, go to gym, have food, go to office, take a bath, have lunch
 # Variables 
 name  = "alan"
 username1 = "alan24"
@@ -9,26 +11,32 @@ task_list = [] #original list
 #complete_task =[] # completed task's will be moved from last_list to this list for the show_complete function.
 
 def add_task ():
+    global task_list
     while True:
-            task = input("Add task (N to main menu): ")
-            if task.lower() == "n":
+            tasks = input("Add tasks (Separate tasks by ',')\n"
+            "('E' Exit to main menu) \n"
+            "Input tasks: ")
+            if tasks.lower() == "n":
                 break
-            elif len(task) < 5:
+            elif len(tasks) <= 5:
                 print("Task should be of at least 5 Characters|Try Again")
-            task = task.capitalize().strip()
-            task_list.append(task)
+            tasks_new = tasks.split(",")
+            for i in tasks_new:
+                task_list.append(i.strip().title())
+
             
 
 def replace_task ():
+    global task_list
     while True:
-            number_ = input("Add task number (N to main menu): ")
-            if number_.lower() == "n":
+            number = input("Add task number (N to main menu): ")
+            if number.lower() == "n":
                 break
-            number_= int(number_)
+            number= int(number)
             new_task = input("Add New task (N to main menu): ")
             if new_task.lower() == "n":
                 break
-            task_list[number_] = new_task            
+            task_list[number] = new_task            
 
 
 def remove_task ():
@@ -37,16 +45,17 @@ def remove_task ():
 
 def mark_complete ():
     while True:
-            number_ = input("Add task number (N to main menu): ")
-            if task.lower() == "n":
+        try:
+            number = input("Add task number (N to main menu): ")
+            if number.lower() == "n":
                 break
-            number_.lower() = number_
-            "[\u2713]" += task_list.index[number_]
-
+            number = int.number
+            "[\u2713]" + task_list.index[number]
+        except:
+            print("Invalid Input| Try Again")
 
 def show_completed ():
     for i in task_list:
-    if i startswith("[\u2731]")
         print(task_list.index(i), i.startswith("[\u2713]"))
 
 
