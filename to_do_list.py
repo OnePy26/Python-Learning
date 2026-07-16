@@ -28,17 +28,20 @@ def add_task ():
 def remove_task ():
     pass            
 
-
+def show_tasks ():
+    global task_list
+    for i in task_list:
+        print(task_list.index(i, start = 1), i)   
 
 def replace_task ():
     global task_list
     while True:
-            number = input("Add task number (N to main menu): ")
-            if number.lower() == "n":
+            number = input("Add task number (E to main menu): ")
+            if number.lower() == "e":
                 break
             number= int(number)
-            new_task = input("Add New task (N to main menu): ")
-            if new_task.lower() == "n":
+            new_task = input("Add New task (E to main menu): ")
+            if new_task.lower() == "e":
                 break
             task_list[number] = new_task            
 
@@ -47,8 +50,8 @@ def replace_task ():
 def mark_complete ():
     while True:
         try:
-            number = input("Add task number (N to main menu): ")
-            if number.lower() == "n":
+            number = input("Add task number (E to main menu): ")
+            if number.lower() == "e":
                 break
             number = int.number
             "[\u2713]" + task_list.index[number]
@@ -106,13 +109,15 @@ while True:
         elif choice ==2:
             remove_task()
         elif choice == 3:
-            mark_complete()
+            show_tasks()
         elif choice == 4:
-            show_completed()
+            mark_complete()
         elif choice == 5:
+            show_completed()
+        elif choice == 6:
             replace_task()
         else:
-            choice == 6
+            choice == 7
             break
     except:
         print("Invalid Choice | Try again")
