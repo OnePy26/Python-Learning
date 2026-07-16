@@ -8,7 +8,7 @@ password1 = "alan42"
 
 # list
 task_list = [] #original list
-#complete_task =[] # completed task's will be moved from last_list to this list for the show_complete function.
+#complete_task =[] # completed task's will be moved from last_list to this list for the show_complete function. Not needed, found a better way to do it.
 
 def add_task ():
     global task_list
@@ -16,7 +16,7 @@ def add_task ():
             tasks = input("Add tasks (Separate tasks by ',')\n"
             "('E' Exit to main menu) \n"
             "Input tasks: ")
-            if tasks.lower() == "n":
+            if tasks.lower() == "e":
                 break
             elif len(tasks) <= 5:
                 print("Task should be of at least 5 Characters|Try Again")
@@ -24,7 +24,11 @@ def add_task ():
             for i in tasks_new:
                 task_list.append(i.strip().title())
 
-            
+
+def remove_task ():
+    pass            
+
+
 
 def replace_task ():
     global task_list
@@ -38,9 +42,6 @@ def replace_task ():
                 break
             task_list[number] = new_task            
 
-
-def remove_task ():
-    pass
 
 
 def mark_complete ():
@@ -56,11 +57,14 @@ def mark_complete ():
 
 def show_completed ():
     for i in task_list:
-        print(task_list.index(i), i.startswith("[\u2713]"))
+        if i.startswith("[\u2713]"):
+            print(task_list.index(i), i)
 
 
 def show_pending ():
-    pass
+    for i in task_list:
+        if not i.startswith("[\u2713]"):
+            print(task_list.index(i), i)
 
 
 def password ():
@@ -87,8 +91,9 @@ if result:
 
     print (f"==================Task Manager================ \n"
     f"1. Add task                   2. Remove Task \n"
-    f"3. Mark Complete              4. Show Completed \n"
-    f"                   5. Exit \n"
+    f"3. Replace Task               4. Mark Complete \n"
+    f"5. Show Completed               6. Show Pending \n"
+    f"                     7.Exit                       \n"
     f"============================================== \n")
 
 #Choice
@@ -104,8 +109,10 @@ while True:
             mark_complete()
         elif choice == 4:
             show_completed()
+        elif choice == 5:
+            replace_task()
         else:
-            choice == 5
+            choice == 6
             break
     except:
         print("Invalid Choice | Try again")
